@@ -71,8 +71,9 @@ file "#{OUTDIR}/dubious/ScopedParameterMap.class" => :'compile:java'
 file "#{OUTDIR}/dubious/ActionController.class" => ["#{OUTDIR}/dubious/Params.class",
                                                     "#{OUTDIR}/dubious/FormHelper.class", 
                                                     "#{OUTDIR}/dubious/AssetTimestampsCache.class"]
-file "#{OUTDIR}/dubious/Inflections.class" => "#{OUTDIR}/dubious/Inflection.class"
-file "#{OUTDIR}/dubious/FormHelper.class" => ["#{OUTDIR}/dubious/Inflections.class", *STDLIB_CLASSES]
+file "#{OUTDIR}/dubious/Inflections.class" => ["#{OUTDIR}/dubious/TextHelper.class"]
+file "#{OUTDIR}/dubious/InstanceTag.class" => ["#{OUTDIR}/dubious/SanitizeHelper.class"]
+file "#{OUTDIR}/dubious/FormHelper.class" => ["#{OUTDIR}/dubious/InstanceTag.class","#{OUTDIR}/dubious/Inflections.class", *STDLIB_CLASSES]
 file "#{OUTDIR}/dubious/Params.class" => "#{OUTDIR}/dubious/ScopedParameterMap.class"
 
 APP_CONTROLLER_CLASSES.each do |f|
